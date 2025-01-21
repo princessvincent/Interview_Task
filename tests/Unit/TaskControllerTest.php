@@ -51,10 +51,10 @@ class TaskControllerTest extends BaseTestCase
                 'status' => 'success',
                 'message' => 'Task created successfully.',
                 'task created' => [
-                    'task_title' => 'Test Task',
-                    'task_description' => 'Task description',
-                    'submission_deadline' => '2025-01-21',
-                    'completed' => false,
+                    'task_title' => $taskData['task_title'],
+                    'task_description' => $taskData['task_description'],
+                    'submission_deadline' => $taskData['submission_deadline'],
+                    'completed' => $taskData['completed'],
                 ]
             ]);
     }
