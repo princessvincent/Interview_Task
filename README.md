@@ -10,7 +10,7 @@ Before setting up the project, ensure you have the following tools installed:
 - **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
 - **Docker Compose**: [Install Docker Compose](https://docs.docker.com/compose/install/)
 - **PHP** (for running the project locally without Docker)
-- **Composer** (for managing PHP dependencies)
+- **Composer** [Install composer](https://getcomposer.org/)
 
 ## Project Setup
 
@@ -19,15 +19,18 @@ Before setting up the project, ensure you have the following tools installed:
 Start by cloning the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-cd into your clone project
+git clone https://github.com/princessvincent/Interview_Task.git
+cd  Interview_Task
 ```
 ### 2. Setup your Environment Variables
 ```
 cp .env.example .env
 ```
 ### 3. Install Dependencies(run)
+### You can run the below command to get into the docker container so you can run your normal php command for installing dependencies
 
+```docker exec -it TaskManagementApi sh```
+### If you prefer to run the command without going into the docker container then use the below command to install composer and run other dependency 
 ```
 docker-compose exec app composer install
 ```
@@ -39,19 +42,18 @@ docker-compose exec app php artisan migrate
 ### 5. Run Docker
 
 ```docker-compose up --build```
-### 6. to go into the container and run your normal php command, run the below command
-```docker exec -it TaskManagementApi sh```
 
-### 7. Run the unit test
-```docker-compose exec app php artisan test```
+### 6. Run the unit test (after successfully starting your docker)
+```docker-compose exec app php artisan test``` 
+Note if you are in the docker container by running the command on step 3 then you can just run 
+```php artisan test ```
 
-### when you go into the container by running the command on instruction 6, then run php artisan test to run the unit test
 
-### 8. Access the Application
-### After starting container by running the command on instruction 5, then you can access the application using the below url
+### 7. Access the Application
+### After starting the container by running the command on step 5, then you can access the application using the below url
 ```http://0.0.0.0:8000/api/```
 
-### 9. Access the Postman Doc for testing the endpoints
+### 8. Access the Postman Doc for testing the endpoints
 ```https://documenter.getpostman.com/view/27521377/2sAYQcFATE```
 
 
